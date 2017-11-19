@@ -30,9 +30,9 @@ export default class LoginForm extends React.Component {
     //var value = null;
     if (value === 'C') {
        this.props.navigation.navigate('ConsumerPage');
-    } else {
+    } else if (value === 'S'){
       this.props.navigation.navigate('StylistPage');
-    }
+    } 
   }
 
   render() {
@@ -112,9 +112,8 @@ export default class LoginForm extends React.Component {
             if (res.success === true) {
 
               AsyncStorage.setItem('user', res.user);
-              var value = await AsyncStorage.getItem('user');
-              alert(value);
-              if (value === "C") {
+
+              if (res.user === 'C') {
                 this.props.navigation.navigate('ConsumerPage');
               } else {
                 this.props.navigation.navigate('StylistPage');

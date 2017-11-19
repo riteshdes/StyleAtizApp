@@ -6,7 +6,6 @@ import { StackNavigator } from 'react-navigation';
 import { withNavigation } from 'react-navigation';
 // import Props from 'prop-types';
 import Props from 'proptypes'
-import Profile from './Profile';
 
 export default class Login extends Component {
   constructor(props) {
