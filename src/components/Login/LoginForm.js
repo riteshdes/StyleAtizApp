@@ -3,7 +3,6 @@ import { AppRegistry, View, StyleSheet, TextInput,
   TouchableOpacity,
   Text,
   KeyboardAvoidingView, StatusBar, AsyncStorage, Image } from 'react-native';
-//import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { StackNavigator } from 'react-navigation';
 import { withNavigation } from 'react-navigation';
 // import Props from 'prop-types';
@@ -32,7 +31,7 @@ export default class LoginForm extends React.Component {
        this.props.navigation.navigate('Profile');
     }
   }
-  
+
   render() {
 
     return (
