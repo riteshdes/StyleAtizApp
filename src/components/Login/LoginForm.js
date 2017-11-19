@@ -15,10 +15,8 @@ export default class LoginForm extends React.Component {
 
   constructor(props) {
     super(props);
-    // alert('Hello LoginForm');
     AsyncStorage.setItem('user', '');
     this.state =  { username: '', password: '' };
-    // this.login = this.login.bind(this);
 
   }
   //
@@ -34,12 +32,7 @@ export default class LoginForm extends React.Component {
        this.props.navigation.navigate('Profile');
     }
   }
-  // //
-  // handleClick(e) {
-  //     this.setState({username:e.target.username});
-  //     this.setState({password:e.target.password});
-  //     alert('HandleClick Functon: ' + this.state.username);//getting value here
-  //   }
+  
   render() {
 
     return (

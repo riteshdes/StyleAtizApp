@@ -15,7 +15,7 @@ export default class Profile extends Component {
     return (
 
       <View style={styles.container}>
-        <Text style={styles.text}> Welcome to Member Area </Text>
+        <Text style={styles.text}> Welcome to Stylist Options Area </Text>
 
 
       </View>
