@@ -8,7 +8,7 @@ import { View, StyleSheet, TextInput,
 //import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Props from 'proptypes';
 
-export default class Profile extends Component {
+export default class StylistPage extends Component {
 
 
   render() {

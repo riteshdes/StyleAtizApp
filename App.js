@@ -17,7 +17,8 @@ import Splash from './Splash';
 import Login from './src/components/Login/Login';
 import LoginForm from './src/components/Login/LoginForm';
 import { StackNavigator } from 'react-navigation';
-import Profile from './src/components/Login/Profile';
+import ConsumerPage from './src/components/Login/ConsumerPage';
+import StylistPage from './src/components/Login/StylistPage';
 // import Props from 'prop-types';
 import Props from 'proptypes';
 
@@ -33,7 +34,8 @@ const instructions = Platform.select({
 
 const NavigationApp = StackNavigator({
 Home: { screen: LoginForm },
-Profile: {screen: Profile }
+ConsumerPage: { screen: ConsumerPage },
+StylistPage: {screen: StylistPage }
 }, {
   navigationOptions: {
     header: false,

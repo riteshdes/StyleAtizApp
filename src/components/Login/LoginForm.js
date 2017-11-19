@@ -7,7 +7,8 @@ import { StackNavigator } from 'react-navigation';
 import { withNavigation } from 'react-navigation';
 // import Props from 'prop-types';
 import Props from 'proptypes'
-import Profile from './Profile';
+import StylistPage from './StylistPage';
+import ConsumerPage from './ConsumerPage';
 
 export default class LoginForm extends React.Component {
 
@@ -15,7 +16,7 @@ export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     AsyncStorage.setItem('user', '');
-    this.state =  { username: '', password: '' };
+    this.state =  { username: '', password: '' , userType: ''};
 
   }
   //
@@ -27,8 +28,10 @@ export default class LoginForm extends React.Component {
 
     var value = await AsyncStorage.getItem('user');
     //var value = null;
-    if (value !== null) {
-       this.props.navigation.navigate('Profile');
+    if (value === 'C') {
+       this.props.navigation.navigate('ConsumerPage');
+    } else {
+      this.props.navigation.navigate('StylistPage');
     }
   }
 
@@ -97,6 +100,7 @@ export default class LoginForm extends React.Component {
             body: JSON.stringify({
               username: this.state.username,
               password: this.state.password,
+              userType: this.state.userType,
             })
           })
 
@@ -106,9 +110,14 @@ export default class LoginForm extends React.Component {
 
 
             if (res.success === true) {
-              alert('User After Fetch: '+ res.user);
+
               AsyncStorage.setItem('user', res.user);
-              this.props.navigation.navigate('Profile');
+              var value = await AsyncStorage.getItem('user');
+              if (value === "C") {
+                this.props.navigation.navigate('ConsumerPage');
+              } else {
+                this.props.navigation.navigate('StylistPage');
+              }
             }
             else {
               alert(res.message);
