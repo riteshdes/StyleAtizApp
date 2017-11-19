@@ -113,6 +113,7 @@ export default class LoginForm extends React.Component {
 
               AsyncStorage.setItem('user', res.user);
               var value = await AsyncStorage.getItem('user');
+              alert(value);
               if (value === "C") {
                 this.props.navigation.navigate('ConsumerPage');
               } else {
