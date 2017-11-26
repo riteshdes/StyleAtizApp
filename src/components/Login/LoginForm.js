@@ -74,15 +74,24 @@ export default class LoginForm extends React.Component {
                        style={styles.txtInput}
                       // ref={(input) => this.passwordInput = input}
                     />
-                  </View>
-                   <TouchableOpacity style={styles.buttonContainer} onPress={this.login.bind(this)}>
-                       <Text style={styles.buttonText}>LOGIN</Text>
-                     </TouchableOpacity>
+
+
+                     </View>
+                     <TouchableOpacity style={styles.buttonContainer} onPress={this.login.bind(this)}>
+                         <Text style={styles.buttonText}>LOGIN</Text>
+                       </TouchableOpacity>
+                     <Text> -- OR --- </Text>
+                     <TouchableOpacity style={styles.buttonContainer} onPress={this.register.bind(this)}>
+                         <Text style={styles.buttonText}>REGISTER</Text>
+                       </TouchableOpacity>
 
           </View>
 
       </KeyboardAvoidingView>
     );
+  }
+  register = () => {
+    this.props.navigation.navigate('Register');
   }
 
    login = () => {
@@ -92,7 +101,7 @@ export default class LoginForm extends React.Component {
 // alert('Inside Login Function: ' + username + " " + password);
 //fetch('http://192.168.29.201:3001/users', {
 
-      fetch('http://192.168.1.146:3001/users', {
+      fetch('http://192.168.159.40:3001/users', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
@@ -174,7 +183,7 @@ header: {
 btn: {
   alignSelf: 'stretch',
   backgroundColor: '#013853',
-  padding: 20,
+  padding: 10,
   alignItems: 'center',
 },
 wrapper: {
@@ -189,13 +198,17 @@ input: {
 },
 buttonContainer: {
   // backgroundColor: '#2980b9',
+  margin: 20,
+  marginBottom: 0,
+  padding: 20,
+  paddingBottom: 10,
   paddingVertical: 15,
   alignSelf: 'stretch',
-  margin: 20,
+  marginTop: 20,
   backgroundColor: 'blue',
   borderWidth: 1,
   borderColor: '#fff',
-  backgroundColor: 'rgba(255, 255, 255, 0.6)'
+  backgroundColor: 'rgba(255, 255, 255, 0.5)'
 
 },
 buttonText: {

@@ -19,6 +19,7 @@ import LoginForm from './src/components/Login/LoginForm';
 import { StackNavigator } from 'react-navigation';
 import ConsumerPage from './src/components/Login/ConsumerPage';
 import StylistPage from './src/components/Login/StylistPage';
+import Register from './src/components/Registration/Register';
 // import Props from 'prop-types';
 import Props from 'proptypes';
 
@@ -35,7 +36,8 @@ const instructions = Platform.select({
 const NavigationApp = StackNavigator({
 Home: { screen: LoginForm },
 ConsumerPage: { screen: ConsumerPage },
-StylistPage: {screen: StylistPage }
+StylistPage: {screen: StylistPage },
+Register: {screen: Register}
 }, {
   navigationOptions: {
     header: false,
