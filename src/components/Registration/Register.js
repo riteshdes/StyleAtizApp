@@ -7,7 +7,7 @@ import { View, StyleSheet, TextInput,
   KeyboardAvoidingView, StatusBar, AsyncStorage, List, ListView} from 'react-native';
 //import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Props from 'proptypes';
-import ConsumerPage from '../Login/LoginForm';
+import LoginForm from '../Login/LoginForm';
 const ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 != row2});
 
 
@@ -29,7 +29,7 @@ export default class Register extends Component {
 
   onRegisterPressed = () => {
 
-      fetch('http://192.168.159.40:3001/register', {
+      fetch('http://192.168.29.201:3001/register', {
            method: 'POST',
            headers: {
              'Accept': 'application/json',

@@ -5,14 +5,16 @@ import { View, StyleSheet, TextInput,
   KeyboardAvoidingView, StatusBar, AsyncStorage, List, ListView} from 'react-native';
 //import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Props from 'proptypes';
+import LoginForm from './LoginForm';
+import ConsumerPage from './ConsumerPage';
 
 const ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 != row2});
 
 
 export default class StylistPage extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       dataSource: ds.cloneWithRows( [
         {
@@ -66,11 +68,19 @@ export default class StylistPage extends Component {
           dataSource= {this.state.dataSource}
           renderRow= {this.renderRow} />
 
+          <TouchableOpacity style={styles.buttonContainer} onPress={this.back.bind(this)}>
+              <Text style={styles.buttonText}>Go Back To Login Page</Text>
+            </TouchableOpacity>
 
 
       </View>
     );
   }
+  back = () => {
+    alert('GoBack');
+    this.props.navigation.navigate('ConsumerPage');
+  }
+
 
 }
 
