@@ -77,8 +77,7 @@ export default class StylistPage extends Component {
     );
   }
   back = () => {
-    alert('GoBack');
-    this.props.navigation.navigate('ConsumerPage');
+    this.props.navigation.navigate('Home');
   }
 
 

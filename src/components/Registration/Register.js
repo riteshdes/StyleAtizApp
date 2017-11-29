@@ -29,7 +29,7 @@ export default class Register extends Component {
 
   onRegisterPressed = () => {
 
-      fetch('http://192.168.29.201:3001/register', {
+      fetch('http://192.168.29.202:3001/register', {
            method: 'POST',
            headers: {
              'Accept': 'application/json',
@@ -50,8 +50,8 @@ export default class Register extends Component {
 
 
            if (res.success === true) {
-              console.log("Res Success is: " + res);
-              this.props.navigation.navigate('LoginForm');
+              alert('User Registered Successfully.  Please login now!')
+              this.props.navigation.navigate('Home');
             } else {
               errors = res;
               throw errors;

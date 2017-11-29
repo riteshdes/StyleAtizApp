@@ -101,7 +101,7 @@ export default class LoginForm extends React.Component {
 // alert('Inside Login Function: ' + username + " " + password);
 //fetch('http://192.168.29.201:3001/users', {
 
-      fetch('http://192.168.29.201:3001/users', {
+      fetch('http://192.168.29.202:3001/users', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
@@ -118,7 +118,7 @@ export default class LoginForm extends React.Component {
           .then((response) => response.json())
 
           .then((res) => {
-            
+
             if (res.success === true) {
 
               AsyncStorage.setItem('user', res.user);

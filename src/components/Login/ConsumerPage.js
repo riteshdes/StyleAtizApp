@@ -77,7 +77,7 @@ export default class ConsumerPage extends Component {
   }
 
   back = () => {
-    alert('GoBack');
+    // alert('GoBack');
     this.props.navigation.navigate('Home');
   }
 
