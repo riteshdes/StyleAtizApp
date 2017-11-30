@@ -95,15 +95,21 @@ export default class Register extends Component {
             </Text>
 
           </TouchableHighlight>
+
+
 </View>
+<TouchableOpacity style={styles.buttonContainer} onPress={this.back.bind(this)}>
+    <Text style={styles.buttonText}>Go Back To Login Page</Text>
+  </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
     );
   }
 
-  // onRegisterPressed = () => {
-  //   this.props.navigation.navigate('Register');
-  // }
+  back = () => {
+    // alert('GoBack');
+    this.props.navigation.navigate('Home');
+  }
 
 }
 

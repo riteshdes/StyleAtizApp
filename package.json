@@ -18,6 +18,7 @@
 		"react": "16.0.0",
 		"react-native": "0.50.3",
 		"react-native-clean-project": "^1.0.4",
+		"react-native-fbsdk": "^0.6.3",
 		"react-native-keyboard-aware-scroll-view": "^0.4.1",
 		"react-navigation": "^1.0.0-beta.19"
 	},
