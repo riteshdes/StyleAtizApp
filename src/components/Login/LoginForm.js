@@ -10,6 +10,7 @@ import Props from 'proptypes'
 import StylistPage from './StylistPage';
 import ConsumerPage from './ConsumerPage';
 
+import FBSDK, { LoginManager } from 'react-native-fbsdk';
 
 
 
@@ -39,8 +40,18 @@ export default class LoginForm extends React.Component {
   }
 
   facebookLogin() {
-
-    }
+    LoginManager.setLoginBehavior('native_only'); 
+    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
+      if (result.isCancelled) {
+        console.log('Login was cancelled by user');
+      }
+      else {
+        console.log('Login Successful: ' + result.grantedPermissions.toString());
+      }
+    }, function(error) {
+      console.log('An Error Occurred ' + error );
+    })
+  };
 
   render() {
 
@@ -57,7 +68,7 @@ export default class LoginForm extends React.Component {
                   <Text style={styles.tagline}>Personal Stylist At Your Finger Tips!</Text>
                 </View>
                 <View style={styles.inputContainer}>
-                <TouchableHighlight onPress={this.facebookLogin}>
+                <TouchableHighlight onPress={this.facebookLogin.bind(this)}>
                     <Text style={styles.welcome}>
                       Facebook Login
                     </Text>
