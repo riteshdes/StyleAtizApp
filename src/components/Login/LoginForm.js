@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { AppRegistry, View, StyleSheet, TextInput,
-  TouchableOpacity,
+  TouchableOpacity, TouchableHighlight,
   Text,
   KeyboardAvoidingView, StatusBar, AsyncStorage, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -9,6 +9,9 @@ import { withNavigation } from 'react-navigation';
 import Props from 'proptypes'
 import StylistPage from './StylistPage';
 import ConsumerPage from './ConsumerPage';
+
+
+
 
 export default class LoginForm extends React.Component {
 
@@ -35,6 +38,10 @@ export default class LoginForm extends React.Component {
     }
   }
 
+  facebookLogin() {
+
+    }
+
   render() {
 
     return (
@@ -49,8 +56,18 @@ export default class LoginForm extends React.Component {
                   />
                   <Text style={styles.tagline}>Personal Stylist At Your Finger Tips!</Text>
                 </View>
-
+                <View style={styles.inputContainer}>
+                <TouchableHighlight onPress={this.facebookLogin}>
+                    <Text style={styles.welcome}>
+                      Facebook Login
+                    </Text>
+                  </TouchableHighlight>
+                  <Text style={styles.instructions}>
+                    {this.state.result}
+                  </Text>
+                </View>
             <View style={styles.inputContainer}>
+
               <TextInput
                     name="username"
                     type="text"
@@ -217,6 +234,16 @@ buttonText: {
   fontSize: 16,
   fontWeight: '700'
 },
+welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 logoContainer: {
   alignItems: 'center',
   flexGrow: 1,
