@@ -39,6 +39,8 @@
 		A3939C781FCFCEDA00FCA1B5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3939C771FCFCEAF00FCA1B5 /* FBSDKShareKit.framework */; };
 		A3939C791FCFCEDD00FCA1B5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3939C761FCFCEA500FCA1B5 /* FBSDKLoginKit.framework */; };
 		A3939C7A1FCFCEDF00FCA1B5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3939C751FCFCEA200FCA1B5 /* FBSDKCoreKit.framework */; };
+		A3939CAD1FCFD94400FCA1B5 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3939C881FCFD94400FCA1B5 /* Bolts.framework */; };
+		A3939CAE1FCFDBEA00FCA1B5 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A307025E1FCFCB6800961024 /* libRCTFBSDK.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -340,6 +342,7 @@
 		A3939C751FCFCEA200FCA1B5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A3939C761FCFCEA500FCA1B5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A3939C771FCFCEAF00FCA1B5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		A3939C881FCFD94400FCA1B5 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -356,6 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3939CAE1FCFDBEA00FCA1B5 /* libRCTFBSDK.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -368,6 +372,7 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				A3939C7A1FCFCEDF00FCA1B5 /* FBSDKCoreKit.framework in Frameworks */,
+				A3939CAD1FCFD94400FCA1B5 /* Bolts.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				A3939C781FCFCEDA00FCA1B5 /* FBSDKShareKit.framework in Frameworks */,
 				A3939C791FCFCEDD00FCA1B5 /* FBSDKLoginKit.framework in Frameworks */,
@@ -597,6 +602,7 @@
 		A3939C711FCFCE7300FCA1B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3939C881FCFD94400FCA1B5 /* Bolts.framework */,
 				A3939C771FCFCEAF00FCA1B5 /* FBSDKShareKit.framework */,
 				A3939C761FCFCEA500FCA1B5 /* FBSDKLoginKit.framework */,
 				A3939C751FCFCEA200FCA1B5 /* FBSDKCoreKit.framework */,
@@ -704,6 +710,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 86S6F2G9Q6;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1231,6 +1238,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 86S6F2G9Q6;
@@ -1242,6 +1251,7 @@
 					"$(PROJECT_DIR)/New\\ Group",
 					"$(PROJECT_DIR)/New\\ Group",
 					/Users/riteshdesai/Documents/FacebookSDKs,
+					"$(PROJECT_DIR)/New\\ Group",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1255,6 +1265,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = StyleAtizApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1263,6 +1274,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 86S6F2G9Q6;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1273,6 +1286,7 @@
 					"$(PROJECT_DIR)/New\\ Group",
 					"$(PROJECT_DIR)/New\\ Group",
 					/Users/riteshdesai/Documents/FacebookSDKs,
+					"$(PROJECT_DIR)/New\\ Group",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1286,6 +1300,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = StyleAtizApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

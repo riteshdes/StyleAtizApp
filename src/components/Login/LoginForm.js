@@ -40,7 +40,7 @@ export default class LoginForm extends React.Component {
   }
 
   facebookLogin() {
-    LoginManager.setLoginBehavior('native_only'); 
+    LoginManager.setLoginBehavior('native');
     LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
       if (result.isCancelled) {
         console.log('Login was cancelled by user');
@@ -68,7 +68,12 @@ export default class LoginForm extends React.Component {
                   <Text style={styles.tagline}>Personal Stylist At Your Finger Tips!</Text>
                 </View>
                 <View style={styles.inputContainer}>
+                  <Image
+                    style={styles.logo}
+                    source={require('../../images/fb-art.png')}
+                  />
                 <TouchableHighlight onPress={this.facebookLogin.bind(this)}>
+
                     <Text style={styles.welcome}>
                       Facebook Login
                     </Text>
