@@ -47,6 +47,8 @@ export default class LoginForm extends React.Component {
       }
       else {
         console.log('Login Successful: ' + result.grantedPermissions.toString());
+        console.log(result.toString());
+        this.props.navigation.navigate('ConsumerPage');
       }
     }, function(error) {
       console.log('An Error Occurred ' + error );
@@ -68,20 +70,20 @@ export default class LoginForm extends React.Component {
                   <Text style={styles.tagline}>Personal Stylist At Your Finger Tips!</Text>
                 </View>
                 <View style={styles.inputContainer}>
-                  <Image
-                    style={styles.logo}
-                    source={require('../../images/fb-art.png')}
-                  />
-                <TouchableHighlight onPress={this.facebookLogin.bind(this)}>
-
-                    <Text style={styles.welcome}>
-                      Facebook Login
-                    </Text>
+                  <Text style={styles.instructions}>
+                    Login with Facebook - Click
+                  </Text>
+                  <TouchableHighlight
+                    onPress={this.facebookLogin.bind(this)}>
+                    <Image
+                      style={styles.fblogo}
+                      source={require('../../images/Facebook.png')} />
                   </TouchableHighlight>
                   <Text style={styles.instructions}>
                     {this.state.result}
                   </Text>
                 </View>
+
             <View style={styles.inputContainer}>
 
               <TextInput
@@ -268,6 +270,10 @@ logoContainer: {
   paddingLeft: 40,
   paddingRight: 40,
   marginBottom: 10,
+},
+fblogo: {
+  width: 150,
+  height: 40,
 },
 logo: {
   width: 100,

@@ -20,6 +20,8 @@
 		"react-native-clean-project": "^1.0.4",
 		"react-native-fbsdk": "^0.6.3",
 		"react-native-keyboard-aware-scroll-view": "^0.4.1",
+		"react-native-safari-view": "^2.1.0",
+		"react-native-vector-icons": "^4.4.2",
 		"react-navigation": "^1.0.0-beta.19"
 	},
 	"devDependencies": {
