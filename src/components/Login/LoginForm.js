@@ -9,6 +9,8 @@ import { withNavigation } from 'react-navigation';
 import Props from 'proptypes'
 import StylistPage from './StylistPage';
 import ConsumerPage from './ConsumerPage';
+import Logo from './Logo';
+//import ValidationComponent from 'react-native-form-validator';
 
 import FBSDK, { LoginManager } from 'react-native-fbsdk';
 
@@ -20,10 +22,25 @@ export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     AsyncStorage.setItem('user', '');
-    this.state =  { username: '', password: '' , userType: ''};
-
+    this.state =  {email: '', password: '' , userType: ''};
   }
   //
+
+  // register() {
+  //   const emailError = validate('email', this.state.email)
+  //   const passwordError = validate('password', this.state.password)
+  //
+  //   this.setState({
+  //     emailError: emailError,
+  //     passwordError: passwordError
+  //   })
+  //
+  //   if (!emailError && !passwordError) {
+  //     alert('Details are valid!')
+  //   }
+  // }
+
+
   componentDidMount() {
     this._loadInitialState().done();
   }
@@ -58,39 +75,18 @@ export default class LoginForm extends React.Component {
   render() {
 
     return (
-      <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
+      <KeyboardAvoidingView behavior='padding' style={styles.container}>
 
           <View style={styles.container}>
-            <Image source={require('../../images/backgroundimage.png')} style={styles.backgroundImage}/>
-                <View style={styles.logoContainer}>
-                  <Image
-                    style={styles.logo}
-                    source={require('../../images/logoatiztech.jpg')}
-                  />
-                  <Text style={styles.tagline}>Personal Stylist At Your Finger Tips!</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                  <Text style={styles.instructions}>
-                    Login with Facebook - Click
-                  </Text>
-                  <TouchableHighlight
-                    onPress={this.facebookLogin.bind(this)}>
-                    <Image
-                      style={styles.fblogo}
-                      source={require('../../images/Facebook.png')} />
-                  </TouchableHighlight>
-                  <Text style={styles.instructions}>
-                    {this.state.result}
-                  </Text>
-                </View>
+          <Logo/>
 
             <View style={styles.inputContainer}>
 
               <TextInput
-                    name="username"
+                    name="email"
                     type="text"
-                    placeholder='username or email'
-                      value={this.state.username} onChangeText={ (text) => this.setState({username: text}) }
+                    placeholder='Email'
+                      value={this.state.email} onChangeText={ (text) => this.setState({email: text}) }
                       returnKeyType="next"
                       onSubmitEditing={() => this.passwordInput.focus()}
                       keyboardType="email-address"
@@ -103,6 +99,7 @@ export default class LoginForm extends React.Component {
                       name="password"
                       type="text"
                     value={this.state.password} onChangeText={ (text) => this.setState({password: text}) }
+
                      returnKeyType="go"
                       secureTextEntry
                     onSubmitEditing={this.login}
@@ -116,13 +113,19 @@ export default class LoginForm extends React.Component {
                          <Text style={styles.buttonText}>LOGIN</Text>
                        </TouchableOpacity>
                      <Text> -- OR --- </Text>
-                     <TouchableOpacity style={styles.buttonContainer} onPress={this.register.bind(this)}>
+                     {/* <TouchableOpacity style={styles.buttonContainer} onPress={this.register.bind(this)}>
                          <Text style={styles.buttonText}>REGISTER</Text>
-                       </TouchableOpacity>
+                       </TouchableOpacity> */}
 
+                       <View style={styles.signUpTextCont}>
+                         <Text style={styles.signupText}>Don't have an account yet?</Text>
+                         <Text style={styles.signupButton} onPress={this.register.bind(this)}>SignUp</Text>
+                       </View>
           </View>
 
+
       </KeyboardAvoidingView>
+
     );
   }
   register = () => {
@@ -130,10 +133,15 @@ export default class LoginForm extends React.Component {
   }
 
    login = () => {
+    //  this.validate({
+    //   password: {minlength:3, maxlength:7, required: true},
+    //   email: {email: true, required: true},
+    //
+    // });
     try{
   //  alert("Test");
 
-// alert('Inside Login Function: ' + username + " " + password);
+// alert('Inside Login Function: ' + email + " " + password);
 //fetch('http://192.168.29.201:3001/users', {
 
       fetch('http://192.168.29.202:3001/users', {
@@ -143,7 +151,7 @@ export default class LoginForm extends React.Component {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              username: this.state.username,
+              email: this.state.email,
               password: this.state.password,
               userType: this.state.userType,
             })
@@ -185,7 +193,7 @@ container: {
   padding: 20,
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '#2896d3',
+  backgroundColor: '#455a64',
   paddingLeft: 40,
   paddingRight: 40,
 
@@ -261,35 +269,25 @@ welcome: {
     color: '#333333',
     marginBottom: 5,
   },
-logoContainer: {
-  alignItems: 'center',
-  flexGrow: 1,
-  justifyContent: 'center',
-  backgroundColor: '#2896d3',
-  paddingLeft: 40,
-  paddingRight: 40,
-  marginBottom: 10,
-},
 fblogo: {
   width: 150,
   height: 40,
 },
-logo: {
-  width: 100,
-  height: 100,
+signupTextCont: {
+  flexGrow: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginVertical: 16,
+  flexDirection: 'row'
 },
-tagline: {
-
-  // marginTop: 10,
-   width: 240,
-  textAlign: 'center',
-  // opacity: 0.9,
-  fontSize: 12,
-  height: 32,
-  padding: 10,
-  marginTop: 10,
-  borderColor: '#fff',
-  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+signupText: {
+  color: 'rgba(255, 255, 255, 0.7)',
+  fontSize: 16
+},
+signupButton: {
+  color:'#ffffff',
+  fontWeight: '500',
+  fontSize:16
 },
 inputContainer: {
   margin: 20,
@@ -299,7 +297,7 @@ inputContainer: {
   alignSelf: 'stretch',
   borderWidth: 1,
   borderColor: '#fff',
-  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  backgroundColor: '#455a64',
 }
 
 });
