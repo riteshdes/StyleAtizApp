@@ -41,14 +41,14 @@ export default class LoginForm extends React.Component {
 
   facebookLogin() {
     LoginManager.setLoginBehavior('native');
-    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
+    LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends']).then(function(result) {
       if (result.isCancelled) {
         console.log('Login was cancelled by user');
       }
       else {
-        console.log('Login Successful: ' + result.grantedPermissions.toString());
-        console.log(result.toString());
-        this.props.navigation.navigate('ConsumerPage');
+        alert('Login Successful: ' + result.grantedPermissions.toString() );
+        console.log(result.toString() );
+        // this.props.navigation.navigate('ConsumerPage');
       }
     }, function(error) {
       console.log('An Error Occurred ' + error );
@@ -193,7 +193,6 @@ container: {
 backgroundImage: {
   flex: 1,
   alignSelf: 'stretch',
-  width: null,
   justifyContent: 'center',
 },
 txtInput: {
