@@ -88,12 +88,16 @@ export default class StylistPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3498db',
+    backgroundColor: '#455a64',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonText: {
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 16
+  },
   text: {
-    color: '#fff'
+    color: 'rgba(255, 255, 255, 0.7)'
   },
   rowStyles: {
     borderWidth: 2,

@@ -19,6 +19,7 @@
 		"react-native": "0.50.3",
 		"react-native-clean-project": "^1.0.4",
 		"react-native-fbsdk": "^0.6.3",
+		"react-native-form-validator": "^0.1.3",
 		"react-native-keyboard-aware-scroll-view": "^0.4.1",
 		"react-native-safari-view": "^2.1.0",
 		"react-native-vector-icons": "^4.4.2",
